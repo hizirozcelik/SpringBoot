@@ -1,0 +1,66 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+	<script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="../static/css/mycss.css" th:href="@{/css/mycss.css}" />
+    <title>Weekly Schedule</title>
+  </head>
+  <body>
+    <nav th:insert="fragments/nav.html :: nav"></nav>
+       
+   <div class="container-fluid bg-light">
+    
+    	<div class="row">
+	    	<div class="col-sm-12 bg-light" ><h2>Weekly Schedule</h2></div>
+
+  		</div>
+    	    
+		<div class="row">
+			<div class="col-sm-12" >
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+		
+				      <th scope="col">Name</th>
+				      <th scope="col">Last Name</th>
+				      <th scope="col">Day</th>
+				      <th scope="col">Time</th>
+				      <th scope="col">Alternate Day</th>
+				      <th scope="col">Alternate Time</th>
+				      
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr th:each="a : ${userScheduleList}">
+				   
+				      <td th:text="${a.name}">Hizir</td>
+				      <td th:text="${a.lastName}">Ozcelik</td>
+				      <td th:text="${a.prefDay1}">Monday</td>
+				      <td th:text="${a.prefTime1}">Morning</td>
+				      <td th:text="${a.prefDay2}">Tuesday</td>
+				      <td th:text="${a.prefTime2}">Lunch Time</td>
+				    </tr>
+				    
+				  </tbody>
+				</table>		
+			</div>
+		</div>
+	
+		<footer th:replace="fragments/footer.html :: footer"></footer>
+   
+    </div>
+   
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    
+  </body>
+</html>
+
