@@ -1,0 +1,75 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" 
+    crossorigin="anonymous">
+
+	<script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="../static/css/mycss.css" th:href="@{/css/mycss.css}" />
+    <title>Workout Details</title>
+  </head>
+  <body>
+      <nav th:insert="fragments/nav.html :: nav"></nav>
+  
+	<div class="container-fluid bg-light">
+   
+    	<div class="col-sm-3">
+		
+			<table class="table table-striped" 
+					th:if="${myLocationList != null AND myLocationList != ''}">
+			
+			  <thead>
+			    <tr >			    		      
+			      <th scope="col">Home Location</th>
+			      <th scope="col">Number of visit</th>  
+			    </tr>
+			    
+			  <tbody>			  
+			    <tr th:each="m : ${myLocationList}">			    
+			      <td th:text="${m.locName}">Upper Middle</td>
+			      <td th:text="${m.numOfVisit}">50</td> 
+			    </tr>			    
+	   		 </table>
+   		 </div>
+   		<div class="col-sm-3">
+   			<table class="table table-striped" 
+					th:if="${otherLocationList != null AND otherLocationList != ''}">
+			
+			  <thead>
+			  
+			    <tr >			    		      
+			      <th scope="col">Other Locations</th>
+			      <th scope="col">Number of visit</th>
+	 		     
+			    </tr>
+			    
+			  <tbody>			  
+			    <tr th:each="o : ${otherLocationList}">			    
+			      <td th:text="${o.locName}">Upper Middle</td>
+			      <td th:text="${o.numOfVisit}">50</td>
+			      
+			    </tr>			    
+	   		 </table>	 	
+   		</div>
+		   	<p><a href="/secure" class="btn btn-secondary active" role="button" aria-pressed="true">Return to home</a></p>
+			<p><a href="#" th:href="@{/logout}">Logout</a></p>	
+    	
+	</div>
+	
+	<footer th:replace="fragments/footer.html :: footer"></footer>
+   
+
+	
+  
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" 
+    crossorigin="anonymous"></script>
+  </body>
+</html>
