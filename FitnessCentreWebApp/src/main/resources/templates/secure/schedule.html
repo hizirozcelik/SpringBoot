@@ -1,5 +1,6 @@
 <!doctype html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org"
+		xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
   <head>
     
     <meta charset="utf-8">
@@ -22,7 +23,7 @@
     	<div class="col-sm-6">
 		
 			<table class="table table-striped" 
-					th:if="${schedule != null AND schedule != ''}">
+					th:if="${scheduleList != null AND scheduleList != ''}">
 			
 			  <thead>
 			  
@@ -35,20 +36,65 @@
 			    </tr>
 			    
 			  <tbody>			  
-			    <tr th:each="s : ${schedule}">			    
+			    <tr th:each="s : ${scheduleList}">			    
 			      <td th:text="${s.scheduleTime}">Egg</td>
 			      <td th:text="${s.className}">For breakfast</td>
 			      <td th:text="${s.classPrice}">5</td>			      
 			      <td th:text="${s.locName}">5</td>			      
-			      <td th:text="${s.roomName}">5</td>			      
+			      <td th:text="${s.roomName}">5</td>
+			      			      
 			    </tr>			    
 	   		 </table>
-	   		 	<p><a href="/secure" class="btn btn-secondary active" role="button" aria-pressed="true">Return to home</a></p>
-				<p><a href="#" th:href="@{/logout}">Logout</a></p>
+	   		 	
 
    		 </div>
-   		<div class="col-sm-3"></div>
-		   	
+   		<!-- <div sec:authorize="hasRole('ROLE_ADMIN')" class="col-sm-3">
+	    	<form method ="post" action="" th:action="@{/secure/addSchedule}" th:object=${schedule}>
+	   
+			   	<div class="form-group gt-3">
+			   	
+			   		<div class="row">
+			   				   			  			
+			   			<div class="col-md-6 form-group">
+			   				
+			   				<input type="hidden" name="scheduleId" th:field="*{scheduleId}" />	
+			   					   			
+				   			<label for="scheduleDate" class="form-label">Date</label>
+				   			<input type="date" class="form-control" th:field="*{scheduleDate}" />
+				   			
+				   			<label for="scheduleTime" class="form-label">Time</label>
+				   			<input type="time" class="form-control" th:field="*{scheduleTime}" />
+				   			
+				   			<label for="className" class="form-label">Phone</label>
+				   			<input type="text" class="form-control" th:field="*{className}" />
+				   				   			
+				   			<label for="classPrice" class="form-label">Email</label>
+				   			<input type="number" class="form-control" th:field="*{classPrice}" />
+
+				   			<label for="locName" class="form-label">Phone</label>
+				   			<input type="text" class="form-control" th:field="*{locName}" />
+
+				   			<label for="roomName" class="form-label">Phone</label>
+				   			<input type="text" class="form-control" th:field="roomName" />				  					   			
+				  		</div>	
+			   				
+			   		</div>
+			   	</div>
+
+			   		   				   		
+			   		<br />
+			   		
+			   		<div class="button">
+								
+						<button type="submit" class="btn btn-primary">Add!</button>
+								
+					</div>
+					
+			</form>
+   		 </div>
+		    -->
+		   <p><a href="/secure" class="btn btn-secondary active" role="button" aria-pressed="true">Return to home</a></p><br />
+				<p><a href="#" th:href="@{/logout}">Logout</a></p>	
     	
 	</div>
 	

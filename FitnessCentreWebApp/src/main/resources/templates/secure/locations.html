@@ -40,15 +40,57 @@
 			      <td th:text="${s.locAddress}">Some Street</td>
 			      <td th:text="${s.locPhone}">55555555</td>			      
 			      <td th:text="${s.locEmail}">sample@fitness.ca</td>			      
-		      
+		      	  <td><a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/secure/editLocationById/}+${s.locId}">Edit</a></td>
+		      	  <td><a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/secure/deleteLocationById/}+${s.locId}">Delete</a></td>
 			    </tr>			    
 	   		 </table>
 	   		 
-	   		 	<p><a href="/secure" class="btn btn-secondary active" role="button" aria-pressed="true">Return to home</a></p>
-				<p><a href="#" th:href="@{/logout}">Logout</a></p>
+	   		 	
 
    		 </div>
-   		<div class="col-sm-3"></div>
+   		 <div sec:authorize="hasRole('ROLE_ADMIN')" class="col-sm-3">
+	    	<form method ="post" action="" th:action="@{/secure/addLocation}" th:object=${location}>
+	   
+			   	<div class="form-group gt-3">
+			   	
+			   		<div class="row">
+			   				   			  			
+			   			<div class="col-md-6 form-group">
+			   				
+			   				<input type="hidden" name="id" th:field="*{locId}" />	
+			   					   			
+				   			<label for="locName" class="form-label">Location Name</label>
+				   			<input type="text" class="form-control" th:field="*{locName}" />
+				   			
+				   			<label for="locAddress" class="form-label">Address</label>
+				   			<input type="text" class="form-control" th:field="*{locAddress}" />
+				   			
+				   			<label for="locPhone" class="form-label">Phone</label>
+				   			<input type="text" class="form-control" th:field="*{locPhone}" />
+				   				   			
+				   			<label for="locEmail" class="form-label">Email</label>
+				   			<input type="email" class="form-control" th:field="*{locEmail}" />
+				  					   			
+				  		</div>	
+			   				
+			   		</div>
+			   	</div>
+
+			   		   				   		
+			   		<br />
+			   		
+			   		<div class="button">
+								
+						<button type="submit" class="btn btn-primary">Add!</button>
+								
+					</div>
+					
+			</form>
+   		 </div>
+   		 
+   				<p><a href="/secure" class="btn btn-secondary active" role="button" aria-pressed="true">Return to home</a></p>
+				<p><a href="#" th:href="@{/logout}">Logout</a></p>
+			   						  			
 		   	
     	
 	</div>

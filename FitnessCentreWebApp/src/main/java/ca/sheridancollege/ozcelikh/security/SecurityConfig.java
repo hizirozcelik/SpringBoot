@@ -12,7 +12,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
  * 
- * @author Hizir Ozcelik, November 2021
+ * @author Hizir Ozcelik, January 2022
  */
 
 @EnableWebSecurity

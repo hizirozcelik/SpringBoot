@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * 
- * @author Hizir Ozcelik, December 2021
+ * @author Hizir Ozcelik, January 2022
  */
 
 @Data

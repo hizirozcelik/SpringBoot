@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class Locations {
+public class Location {
 	
 	private Long locId;
 	private String locName;

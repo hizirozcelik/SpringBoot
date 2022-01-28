@@ -18,73 +18,41 @@
       <nav th:insert="fragments/nav.html :: nav"></nav>
   
 	<div class="container-fluid bg-light">
-    	<div class="col-sm-3"></div> 
+
     	<div class="col-sm-6">
 		
-		
-			<table style="width:100%" th:each="l : ${location}">
-			  <tr>
-			    <th>Name:</th>
-			    <td th:text="${l.locName}">Bill Gates</td>
-			  </tr>
-			  <tr>
-			    <th>Address:</th>
-			    <td th:text="${l.locAddress}">555 77 854</td>
-			  </tr>
-			  <tr>
-			    <th>Phone:</th>
-			    <td th:text="${l.locPhone}">555 77 855</td>
-			  </tr>
-			  <tr>
-			    <th>Email:</th>
-			    <td th:text="${l.locEmail}">555 77 855</td>
-			  </tr>
-			</table>
-   		 </div>
-   		<div class="col-sm-3">
-		
 			<table class="table table-striped" 
-					th:if="${amenityList != null AND amenityList != ''}">
+					th:if="${userList != null AND userList != ''}">
 			
 			  <thead>
 			  
 			    <tr >			    		      
-			      <th scope="col">Amenities</th>			       
+			      <th scope="col">Name</th>
+			      <th scope="col">Last Name</th>
+			      <th scope="col">Adress</th>
+			      <th scope="col">Phone</th>			 		     
+			      <th scope="col">Email</th>			 		     
 		 		     
 			    </tr>
 			    
 			  <tbody>			  
-			    <tr th:each="a : ${amenityList}">
-		    
-			      <td th:text="${a.amenityName}">Location</td>			      
-		      
-			    </tr>			    
-	   		 </table>
-	   	</div>
-   		<div class="col-sm-3">
-		
-			<table class="table table-striped" 
-					th:if="${coachList != null AND coachList != ''}">
-			
-			  <thead>
-			  
-			    <tr >			    		      
-			      <th scope="col">Coaches</th>			 		     
-		 		     
-			    </tr>
-			    
-			  <tbody>			  
-			    <tr th:each="c : ${coachList}">
-		    
-			      <td th:text="${c.coachName}">Location</td>
-	      
+			    <tr th:each="u : ${userList}">			    
+			      <td th:text="${u.name}">Hizir</td>
+			      <td th:text="${u.lastName}">Hizir</td>
+			      <td th:text="${u.address}">Some Street</td>
+			      <td th:text="${u.phone}">55555555</td>			      
+			      <td th:text="${u.email}">sample@fitness.ca</td>			      
+
 			    </tr>			    
 	   		 </table>
 	   		 
-	   		 	<p><a href="/secure" class="btn btn-secondary active" role="button" aria-pressed="true">Return to home</a></p>
-				<p><a href="#" th:href="@{/logout}">Logout</a></p>
+	   		 	
 
    		 </div>
+   		 
+   				<p><a href="/secure" class="btn btn-secondary active" role="button" aria-pressed="true">Return to home</a></p>
+				<p><a href="#" th:href="@{/logout}">Logout</a></p>
+			   						  			
 		   	
     	
 	</div>
